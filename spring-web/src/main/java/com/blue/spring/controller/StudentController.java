@@ -28,9 +28,8 @@ public class StudentController {
 
     @RequestMapping("/toStudentView")
     public String toStudentView(HttpServletRequest request, Model model){
-        logger.info("已经进入");
-        List<Student> list = studentService.findAllStudent(null);
-        model.addAttribute("list",list);
+//        List<Student> list = studentService.findAllStudent(null);
+//        model.addAttribute("list",list);
         return "student/StudentView";
     }
 
