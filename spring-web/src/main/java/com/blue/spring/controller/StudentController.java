@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -27,9 +29,12 @@ public class StudentController {
     StudentService studentService;
 
     @RequestMapping("/toStudentView")
+//    @ResponseBody
     public String toStudentView(HttpServletRequest request, Model model){
-        List<Student> list = studentService.findAllStudent(null);
-        model.addAttribute("list",list);
+        List<Student> studentlist = studentService.findAllStudent(null);
+        logger.info("Student ====" + studentlist.toString());
+        model.addAttribute("studentlist",studentlist);
+//        model.addAttribute("studentlist","aaaaaa");
         return "student/StudentView";
     }
 
