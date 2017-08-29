@@ -1,12 +1,14 @@
 package com.blue.spring.model;
 
+import java.io.Serializable;
+
 /**
  * @description:
  * @email:
  * @author: lizhixin
  * @createDate: 13:50 2017/8/23
  */
-public class Student {
+public class Student implements Serializable{
     private Integer id;
     private String name;//姓名
     private Boolean sex;//性别

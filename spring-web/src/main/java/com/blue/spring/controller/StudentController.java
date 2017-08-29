@@ -23,13 +23,13 @@ import java.util.List;
 public class StudentController {
     private Logger logger = LoggerFactory.getLogger(StudentController.class);
 
-    @Resource
-    private StudentService studentService;
+    @Resource(name = "studentService")
+    StudentService studentService;
 
     @RequestMapping("/toStudentView")
     public String toStudentView(HttpServletRequest request, Model model){
-//        List<Student> list = studentService.findAllStudent(null);
-//        model.addAttribute("list",list);
+        List<Student> list = studentService.findAllStudent(null);
+        model.addAttribute("list",list);
         return "student/StudentView";
     }
 

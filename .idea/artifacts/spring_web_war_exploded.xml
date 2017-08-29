@@ -12,12 +12,6 @@
           <element id="archive" name="spring-model-1.0-SNAPSHOT.jar">
             <element id="module-output" name="spring-model" />
           </element>
-          <element id="archive" name="spring-dao-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="spring-dao" />
-          </element>
-          <element id="archive" name="spring-service-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="spring-service" />
-          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.0.6.RELEASE" />

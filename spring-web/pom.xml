@@ -25,17 +25,17 @@
             <version>${project.version}</version>
         </dependency>
         <!--添加对spring-dao的依赖-->
-        <dependency>
-            <groupId>com.lzx.spring</groupId>
-            <artifactId>spring-dao</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.lzx.spring</groupId>-->
+            <!--<artifactId>spring-dao</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
         <!--添加对spring-service的依赖-->
-        <dependency>
-            <groupId>com.lzx.spring</groupId>
-            <artifactId>spring-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.lzx.spring</groupId>-->
+            <!--<artifactId>spring-service</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
