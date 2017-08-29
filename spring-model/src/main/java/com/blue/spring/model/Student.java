@@ -14,6 +14,7 @@ public class Student implements Serializable{
     private Boolean sex;//性别
     private String address;//地址
 
+
     public Integer getId() {
         return id;
     }
