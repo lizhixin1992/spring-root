@@ -98,6 +98,12 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- spring的消息中间件 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <!-- mybatis包 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -280,6 +286,12 @@
             <!--<artifactId>jedis</artifactId>-->
             <!--<version>2.1.0</version>-->
         <!--</dependency>-->
+        <!--RabbitMQ 消息队列-->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>4.2.0</version>
+        </dependency>
     </dependencies>
 
 </project>

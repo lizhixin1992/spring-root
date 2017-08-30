@@ -24,6 +24,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jms:4.0.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.7" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.30" />
@@ -56,6 +57,7 @@
           <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.3.3" />
           <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
           <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
+          <element id="library" level="project" name="Maven: com.rabbitmq:amqp-client:4.2.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
