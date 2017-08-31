@@ -12,12 +12,12 @@
         <module name="spring-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-dao" target="1.5" />
-      <module name="spring-model" target="1.5" />
-      <module name="spring-root" target="1.5" />
-      <module name="spring-service" target="1.5" />
-      <module name="spring-web" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring-dao" target="1.8" />
+      <module name="spring-model" target="1.8" />
+      <module name="spring-root" target="1.8" />
+      <module name="spring-service" target="1.8" />
+      <module name="spring-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

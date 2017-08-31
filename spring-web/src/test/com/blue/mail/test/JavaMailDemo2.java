@@ -6,6 +6,8 @@ import javax.mail.Message.RecipientType;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.*;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.Properties;
 
@@ -108,7 +110,7 @@ public class JavaMailDemo2 {
          * 下面是邮件内容的创建:
          */
         // 5. 创建图片“节点”
-        String classPath = new String(JavaMailDemo2.class.getClass().getResource("/").getPath().getBytes(),"utf-8");
+        String classPath = JavaMailDemo2.class.getClass().getResource("/").getPath();
         MimeBodyPart image = new MimeBodyPart();
         DataHandler dh = new DataHandler(new FileDataSource(classPath+"57d9f87ae35b91c9306ab4ddd499bc02.jpg")); // 读取本地文件
         image.setDataHandler(dh);                   // 将图片数据添加到“节点”
@@ -133,7 +135,7 @@ public class JavaMailDemo2 {
 
         // 9. 创建附件“节点”
         MimeBodyPart attachment = new MimeBodyPart();
-        DataHandler dh2 = new DataHandler(new FileDataSource(classPath+"test.txt"));  // 读取本地文件
+        DataHandler dh2 = new DataHandler(new FileDataSource(classPath+"text.txt"));  // 读取本地文件
         attachment.setDataHandler(dh2);                                             // 将附件数据添加到“节点”
         attachment.setFileName(MimeUtility.encodeText(dh2.getName()));              // 设置附件的文件名（需要编码）
 
@@ -151,6 +153,12 @@ public class JavaMailDemo2 {
 
         // 13. 保存上面的所有设置
         message.saveChanges();
+
+        // 14. 将该邮件保存到本地
+        OutputStream out = new FileOutputStream("MyEmail.eml");
+        message.writeTo(out);
+        out.flush();
+        out.close();
 
         return message;
     }
