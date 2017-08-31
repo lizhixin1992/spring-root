@@ -13,13 +13,12 @@ import java.util.Map;
  * @author: lizhixin
  * @createDate: 16:01 2017/8/30
  */
-public class QueueConsumer extends BaseMQ {
+public class QueueConsumer extends BaseMQ implements Runnable{
     public QueueConsumer(String endPointName) throws Exception{
         super(endPointName);
     }
 
-    public boolean receive() {
-        boolean flag = false;
+    public void run() {
         try {
             //start consuming messages. Auto acknowledge messages.
             Consumer consumer = new DefaultConsumer(channel) {
@@ -32,10 +31,9 @@ public class QueueConsumer extends BaseMQ {
                 }
             };
             channel.basicConsume(endPointName, true,consumer);
-            flag = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return flag;
     }
 }
+

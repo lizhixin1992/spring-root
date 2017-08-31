@@ -11,8 +11,8 @@ public class ConsumerTest {
     public ConsumerTest() throws Exception{
 
         QueueConsumer consumer = new QueueConsumer("lzxQueue");
-        boolean f = consumer.receive();
-        System.out.println(f);
+        Thread consumerThread = new Thread(consumer);
+        consumerThread.start();
     }
 
     /**
