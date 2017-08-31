@@ -58,6 +58,8 @@
           <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
           <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
           <element id="library" level="project" name="Maven: com.rabbitmq:amqp-client:4.2.0" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.0" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
