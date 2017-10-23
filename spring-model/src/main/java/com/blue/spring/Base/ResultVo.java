@@ -1,4 +1,4 @@
-package com.blue.spring.model;
+package com.blue.spring.Base;
 
 /**
  * @description:

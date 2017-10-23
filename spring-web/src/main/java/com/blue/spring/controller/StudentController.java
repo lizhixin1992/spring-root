@@ -1,21 +1,15 @@
 package com.blue.spring.controller;
 
-import com.blue.spring.model.ResultVo;
-import com.blue.spring.model.Student;
 import com.blue.spring.service.StudentService;
-import com.sun.net.httpserver.Authenticator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @description:
