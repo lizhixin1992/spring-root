@@ -60,6 +60,9 @@
           <element id="library" level="project" name="Maven: com.rabbitmq:amqp-client:4.2.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.0" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp:okhttp-apache:2.7.5" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp:okhttp:2.7.5" />
+          <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.6.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
