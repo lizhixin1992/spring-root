@@ -2,7 +2,7 @@ package com.blue.HttpUtil.test;
 
 import com.alibaba.fastjson.JSONObject;
 import com.blue.spring.Base.CustomException;
-import com.squareup.okhttp.*;
+import okhttp3.*;
 
 import java.net.URL;
 import java.net.URLEncoder;
@@ -116,7 +116,7 @@ public class HttpUtil {
 //        String dateJson = JSON.toJSONString(jsonObject);
 //        Response response = postJson(url,dateJson);
 
-        Map<String,String> map = new HashMap<>();
+        Map<String,String> map = new HashMap<String, String>();
         map.put("1","1");
         map.put("2","2");
         map.put("3","3");

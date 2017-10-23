@@ -2,9 +2,7 @@ package com.blue.spring.Base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.squareup.okhttp.Response;
-
-import java.io.IOException;
+import okhttp3.Response;
 
 /**
  * @description:
