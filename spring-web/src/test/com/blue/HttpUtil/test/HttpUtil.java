@@ -59,28 +59,28 @@ public class HttpUtil {
         Response response = null;
         try {
             String sendType = "GET";
-//            StringBuilder urlPath = new StringBuilder(sendUrl);
+            StringBuilder urlPath = new StringBuilder(sendUrl);
             if(dataMap.size() > 0){
                 Iterator iterator = dataMap.entrySet().iterator();
-                sendUrl = sendUrl + "?";
-//                urlPath.append("?");
+//                sendUrl = sendUrl + "?";
+                urlPath.append("?");
 
                 while (iterator.hasNext()){
                     Map.Entry<String, String> param = (Map.Entry)iterator.next();
-                    sendUrl = sendUrl + param.getKey() + "=" + URLEncoder.encode(param.getValue(),"utf-8") + "&";
+//                    sendUrl = sendUrl + param.getKey() + "=" + URLEncoder.encode(param.getValue(),"utf-8") + "&";
 
-//                    urlPath.append(param.getKey())
-//                            .append("=")
-//                            .append(URLEncoder.encode(param.getValue(),"utf-8"))
-//                            .append("&");
+                    urlPath.append(param.getKey())
+                            .append("=")
+                            .append(URLEncoder.encode(param.getValue(),"utf-8"))
+                            .append("&");
                 }
-                sendUrl = sendUrl.substring(0,sendUrl.length()-1);
-//                urlPath.deleteCharAt(urlPath.length() - 1);
+//                sendUrl = sendUrl.substring(0,sendUrl.length()-1);
+                urlPath.deleteCharAt(urlPath.length() - 1);
             }
 
 
-            URL url = new URL(sendUrl);
-//            URL url = new URL(urlPath.toString());
+//            URL url = new URL(sendUrl);
+            URL url = new URL(urlPath.toString());
             OkHttpClient okHttpClient = new OkHttpClient();
             Request request = new Request.Builder()
                     .url(url)
