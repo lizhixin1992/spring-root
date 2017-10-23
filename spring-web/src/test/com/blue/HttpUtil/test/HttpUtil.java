@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.blue.spring.Base.CustomException;
 import com.squareup.okhttp.*;
 
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -53,19 +55,32 @@ public class HttpUtil {
         }
     }
 
-    public static Response getForValueOnUrl(String url,Map<String,String> dataMap) throws CustomException{
+    public static Response getForValueOnUrl(String sendUrl,Map<String,String> dataMap) throws CustomException{
         Response response = null;
         try {
             String sendType = "GET";
+//            StringBuilder urlPath = new StringBuilder(sendUrl);
             if(dataMap.size() > 0){
                 Iterator iterator = dataMap.entrySet().iterator();
-                url = url + "?";
+                sendUrl = sendUrl + "?";
+//                urlPath.append("?");
+
                 while (iterator.hasNext()){
-                    Map.Entry<String, Object> param = (Map.Entry)iterator.next();
-                    url = url + "&" + param.getKey() + "=" + param.getValue();
+                    Map.Entry<String, String> param = (Map.Entry)iterator.next();
+                    sendUrl = sendUrl + param.getKey() + "=" + URLEncoder.encode(param.getValue(),"utf-8") + "&";
+
+//                    urlPath.append(param.getKey())
+//                            .append("=")
+//                            .append(URLEncoder.encode(param.getValue(),"utf-8"))
+//                            .append("&");
                 }
+                sendUrl = sendUrl.substring(0,sendUrl.length()-1);
+//                urlPath.deleteCharAt(urlPath.length() - 1);
             }
 
+
+            URL url = new URL(sendUrl);
+//            URL url = new URL(urlPath.toString());
             OkHttpClient okHttpClient = new OkHttpClient();
             Request request = new Request.Builder()
                     .url(url)
@@ -100,10 +115,11 @@ public class HttpUtil {
 //        jsonObject.put("name","test");
 //        String dateJson = JSON.toJSONString(jsonObject);
 //        Response response = postJson(url,dateJson);
+
         Map<String,String> map = new HashMap<>();
-//        map.put("1","1");
-//        map.put("2","2");
-//        map.put("3","3");
+        map.put("1","1");
+        map.put("2","2");
+        map.put("3","3");
         Response response = getForValueOnUrl(url,map);
 
     }
