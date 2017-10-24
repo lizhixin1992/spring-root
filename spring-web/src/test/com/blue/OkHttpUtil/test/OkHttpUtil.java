@@ -111,13 +111,14 @@ public class OkHttpUtil {
 //
 //        Response response = okHttpClient.newCall(request).execute();
 
-        String url = "";
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","test");
-        String dateJson = JSON.toJSONString(jsonObject);
+        String url = "http://cbase.cnlive.com/nry_test/add/live";
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("name","test");
+//        String dateJson = JSON.toJSONString(jsonObject);
+        String dateJson = "{\"createTime\":\"2017-10-24 15:19:03\",\"weight\":\"10\",\"spName\":\"\",\"pageUrl\":\"http://v.cnlive.com/other/v_ha4dgmbxha.html\",\"copyrightId\":\"1465679\",\"img\":\"[{\\\"format\\\":\\\"600*600\\\",\\\"url\\\":\\\"http://yweb0.cnliveimg.com/bc/82/2017/1023/1508727199486_6264.jpg\\\"}]\",\"contentType\":\"live\",\"extensions\":{\"rates\":\"2\"},\"cpId\":\"82\",\"subTitle\":\"\",\"categoryName\":\"其他\",\"title\":\"内容库测试\",\"area\":\"\",\"editorId\":\"1465679\",\"verTimestamp\":\"1508830549453\",\"description\":\"1111\",\"cpName\":\"李志鑫\",\"spId\":\"82\",\"actors\":\"\",\"year\":\"\",\"groupType\":\"program\",\"keywords\":\"live\",\"albumName\":\"\",\"publishTime\":\"2017-10-24 15:35:49\",\"status\":\"1\",\"categoryId\":\"100026\",\"director\":\"\",\"editorName\":\"李志鑫\",\"extension1\":\"\",\"extension2\":\"\",\"uuid\":\"82_7acf18aad9ae4ceea8178b207b2d271d\"}";
         Response response = postJson(url,dateJson);
         //获取返回的参数进行后续的判断处理
-        System.out.println(response.body().string());
+        System.out.println(JSON.parseObject(response.body().string()).toString());
 
 //        Map<String,String> map = new HashMap<String, String>();
 //        map.put("1","1");
