@@ -1,5 +1,6 @@
-package com.blue.HttpUtil.test;
+package com.blue.OkHttpUtil.test;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.blue.spring.Base.CustomException;
 import okhttp3.*;
@@ -11,12 +12,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * @description: okhttp 工具类
+ * @description: okhttp 工具类（新的HTTP请求类）
  * @email:
  * @author: lizhixin
  * @createDate: 14:04 2017/10/23
  */
-public class HttpUtil {
+public class OkHttpUtil {
 
     /**
      *@description: POST请求（contentType=application/json）
@@ -46,7 +47,7 @@ public class HttpUtil {
             e.printStackTrace();
         }
 
-        if(response.isRedirect()){
+        if(response.isSuccessful()){
             System.out.println(response.isSuccessful());
             return response;
         }else{
@@ -94,7 +95,7 @@ public class HttpUtil {
             e.printStackTrace();
         }
 
-        if(response.isRedirect()){
+        if(response.isSuccessful()){
             System.out.println(response.isSuccessful());
             return response;
         }else{
@@ -110,17 +111,19 @@ public class HttpUtil {
 //
 //        Response response = okHttpClient.newCall(request).execute();
 
-        String url = "http://www.baidu.com";
+        String url = "";
         JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("name","test");
-//        String dateJson = JSON.toJSONString(jsonObject);
-//        Response response = postJson(url,dateJson);
+        jsonObject.put("name","test");
+        String dateJson = JSON.toJSONString(jsonObject);
+        Response response = postJson(url,dateJson);
+        //获取返回的参数进行后续的判断处理
+        System.out.println(response.body().string());
 
-        Map<String,String> map = new HashMap<String, String>();
-        map.put("1","1");
-        map.put("2","2");
-        map.put("3","3");
-        Response response = getForValueOnUrl(url,map);
+//        Map<String,String> map = new HashMap<String, String>();
+//        map.put("1","1");
+//        map.put("2","2");
+//        map.put("3","3");
+//        Response response = getForValueOnUrl(url,map);
 
     }
 
