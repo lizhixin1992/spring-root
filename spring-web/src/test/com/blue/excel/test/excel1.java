@@ -1,5 +1,6 @@
 package com.blue.excel.test;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.usermodel.XSSFDataValidationHelper;
@@ -19,8 +20,12 @@ import java.util.*;
 public class excel1 {
 
     public static void main(String[] args) {
-        testCascade2007();
+        System.out.println(StringUtils.isNotBlank(" "));
+
+//        testCascade2007();
     }
+
+    //对于直辖市要单独处理，保证省和市命名不一样，否则会覆盖导致四个直辖市无法显示区
     public static void testCascade2007() {
         // 查询所有的省名称
         List<String> provNameList = new ArrayList<String>();
@@ -89,6 +94,7 @@ public class excel1 {
 
             XSSFDataValidationHelper dvHelper = new XSSFDataValidationHelper((XSSFSheet)sheet1);
 
+            // 每一行的省市区要单独设置一次，不能一起设置
             // 省规则
             DataValidationConstraint provConstraint = dvHelper.createExplicitListConstraint(provNameList.toArray(new String[]{}));
             CellRangeAddressList provRangeAddressList = new CellRangeAddressList(1, 1, 0, 0);
@@ -102,6 +108,7 @@ public class excel1 {
             // 市以规则，此处仅作一个示例
             // "INDIRECT($A$" + 2 + ")" 表示规则数据会从名称管理器中获取key与单元格 A2 值相同的数据，如果A2是浙江省，那么此处就是
             // 浙江省下的区域信息。
+            // A是省对应的位置（特别注意）
             DataValidationConstraint formula = dvHelper.createFormulaListConstraint("INDIRECT($A$" + 1 + ")");
             CellRangeAddressList rangeAddressList = new CellRangeAddressList(1,1,1,1);
             DataValidation cacse = dvHelper.createValidation(formula, rangeAddressList);
