@@ -21,7 +21,7 @@ public class excel1 {
 
     public static void main(String[] args) {
         System.out.println(StringUtils.isNotBlank(" "));
-
+        System.out.println(org.springframework.util.StringUtils.isEmpty(" "));
 //        testCascade2007();
     }
 

@@ -8,7 +8,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @description:
@@ -52,6 +55,18 @@ public class ServiceTest {
         List<Student> list = studentService.findAllStudent(null);
         for (Student s : list) {
             System.out.println(s.toString());
+        }
+    }
+
+
+    public static void main(String[] args) {
+        try {
+            InputStream in = new FileInputStream("D:\\test.properties.bak");
+            Properties properties = new Properties();
+            properties.load(in);
+            System.out.println(properties);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -129,53 +129,53 @@ public class excel2 implements Serializable{
 
         // row0.createCell(0).setCellValue("<必填>订单类型");
 
-        Cell cell0 = row0.createCell(0);
-        RichTextString text0 = new XSSFRichTextString("<必填>订单类型");
-        text0.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
-        cell0.setCellValue(text0); // 设置单元格的值
-        sheet1.setColumnWidth(0, 15* 256);
+//        Cell cell0 = row0.createCell(0);
+//        RichTextString text0 = new XSSFRichTextString("<必填>订单类型");
+//        text0.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
+//        cell0.setCellValue(text0); // 设置单元格的值
+//        sheet1.setColumnWidth(0, 15* 256);
 
         //row0.createCell(1).setCellValue("<必填>订单服务类型");
-        Cell cell1 = row0.createCell(1);
-        RichTextString text1 = new XSSFRichTextString("<必填>订单服务类型");
-        text1.applyFont(0, 10, font2); // 0, 1 表示应用字体的范围
-        cell1.setCellValue(text1); // 设置单元格的值
-        sheet1.setColumnWidth(1, 19* 256);
+//        Cell cell1 = row0.createCell(1);
+//        RichTextString text1 = new XSSFRichTextString("<必填>订单服务类型");
+//        text1.applyFont(0, 10, font2); // 0, 1 表示应用字体的范围
+//        cell1.setCellValue(text1); // 设置单元格的值
+//        sheet1.setColumnWidth(1, 19* 256);
 
         //row0.createCell(2).setCellValue("<必填>选择店铺");
-        Cell cell2 = row0.createCell(2);
-        RichTextString text2 = new XSSFRichTextString("<必填>选择店铺");
-        text2.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
-        cell2.setCellValue(text2); // 设置单元格的值
-        sheet1.setColumnWidth(2, 15* 256);
+//        Cell cell2 = row0.createCell(2);
+//        RichTextString text2 = new XSSFRichTextString("<必填>选择店铺");
+//        text2.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
+//        cell2.setCellValue(text2); // 设置单元格的值
+//        sheet1.setColumnWidth(2, 15* 256);
 
         //row0.createCell(3).setCellValue("<必填>外部单号");
-        Cell cell3 = row0.createCell(3);
-        RichTextString text3 = new XSSFRichTextString("<必填>外部单号");
-        text3.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
-        cell3.setCellValue(text3); // 设置单元格的值
-        sheet1.setColumnWidth(3, 15* 256);
+//        Cell cell3 = row0.createCell(3);
+//        RichTextString text3 = new XSSFRichTextString("<必填>外部单号");
+//        text3.applyFont(0, 8, font2); // 0, 1 表示应用字体的范围
+//        cell3.setCellValue(text3); // 设置单元格的值
+//        sheet1.setColumnWidth(3, 15* 256);
 
 
-        row0.createCell(4).setCellValue("要求上门日期");
-        sheet1.setColumnWidth(4, 13* 256);
+//        row0.createCell(4).setCellValue("要求上门日期");
+//        sheet1.setColumnWidth(4, 13* 256);
 
         //row0.createCell(5).setCellValue("<必填>收货人姓名");
-        Cell cell5 = row0.createCell(5);
-        RichTextString text5 = new XSSFRichTextString("<必填>收货人姓名");
-        text5.applyFont(0, 9, font2); // 0, 1 表示应用字体的范围
-        cell5.setCellValue(text5); // 设置单元格的值
-        sheet1.setColumnWidth(5, 17* 256);
+//        Cell cell5 = row0.createCell(5);
+//        RichTextString text5 = new XSSFRichTextString("<必填>收货人姓名");
+//        text5.applyFont(0, 9, font2); // 0, 1 表示应用字体的范围
+//        cell5.setCellValue(text5); // 设置单元格的值
+//        sheet1.setColumnWidth(5, 17* 256);
 
         //row0.createCell(6).setCellValue("<必填>收货人手机");
-        Cell cell6 = row0.createCell(6);
-        RichTextString text6 = new XSSFRichTextString("<必填>收货人手机");
-        text6.applyFont(0, 9, font2); // 0, 1 表示应用字体的范围
-        cell6.setCellValue(text6); // 设置单元格的值
-        sheet1.setColumnWidth(6, 17* 256);
+//        Cell cell6 = row0.createCell(6);
+//        RichTextString text6 = new XSSFRichTextString("<必填>收货人手机");
+//        text6.applyFont(0, 9, font2); // 0, 1 表示应用字体的范围
+//        cell6.setCellValue(text6); // 设置单元格的值
+//        sheet1.setColumnWidth(6, 17* 256);
 
-        row0.createCell(7).setCellValue("收货人电话");
-        sheet1.setColumnWidth(7, 12* 256);
+//        row0.createCell(7).setCellValue("收货人电话");
+//        sheet1.setColumnWidth(7, 12* 256);
 
         //row0.createCell(8).setCellValue("<必填>收货省");
         Cell cell8 = row0.createCell(8);
@@ -197,22 +197,22 @@ public class excel2 implements Serializable{
         text10.applyFont(0, 7, font2); // 0, 1 表示应用字体的范围
         cell10.setCellValue(text10); // 设置单元格的值
         sheet1.setColumnWidth(10, 14* 256);
+//
+//        row0.createCell(11).setCellValue("收货现场联系人");
+//        sheet1.setColumnWidth(11, 15* 256);
 
-        row0.createCell(11).setCellValue("收货现场联系人");
-        sheet1.setColumnWidth(11, 15* 256);
+//        row0.createCell(12).setCellValue("收货现场联系人手机");
+//        sheet1.setColumnWidth(12, 18* 256);
+//        //row0.createCell(13).setCellValue("<必填>收货详细地址");
 
-        row0.createCell(12).setCellValue("收货现场联系人手机");
-        sheet1.setColumnWidth(12, 18* 256);
-        //row0.createCell(13).setCellValue("<必填>收货详细地址");
+//        Cell cell13 = row0.createCell(13);
+//        RichTextString text13 = new XSSFRichTextString("<必填>收货详细地址");
+//        text13.applyFont(0, 10, font2); // 0, 1 表示应用字体的范围
+//        cell13.setCellValue(text13); // 设置单元格的值
+//        sheet1.setColumnWidth(13, 18* 256);
 
-        Cell cell13 = row0.createCell(13);
-        RichTextString text13 = new XSSFRichTextString("<必填>收货详细地址");
-        text13.applyFont(0, 10, font2); // 0, 1 表示应用字体的范围
-        cell13.setCellValue(text13); // 设置单元格的值
-        sheet1.setColumnWidth(13, 18* 256);
-
-        row0.createCell(14).setCellValue("留言备注");
-        sheet1.setColumnWidth(14, 14* 256);
+//        row0.createCell(14).setCellValue("留言备注");
+//        sheet1.setColumnWidth(14, 14* 256);
 
         //设置一下高度
         row0.setHeightInPoints(20);
