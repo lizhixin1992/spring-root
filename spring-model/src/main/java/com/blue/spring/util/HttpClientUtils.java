@@ -39,6 +39,12 @@ public final class HttpClientUtils {
     private final static Logger log = LoggerFactory.getLogger(HttpClientUtils.class);
 
 
+    /**
+     *@description: get请求方法
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:39 2017/11/23
+    */
     public static String get(String url, Map<String, Object> params, int timeoutMils) {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -79,6 +85,12 @@ public final class HttpClientUtils {
         return "";
     }
 
+    /**
+     *@description: post请求（传参为Map,content-type为默认值）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:40 2017/11/23
+    */
     public static String post(String url, Map<String, String> params, int timeoutMils) {
 //        log.info("url=" + url + ",params=" + params);
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -115,6 +127,12 @@ public final class HttpClientUtils {
     }
 
 
+    /**
+     *@description: post请求方法（传参为json，content-type为application/json;charset=UTF-8）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:40 2017/11/23
+    */
     public static String post(String url, String json, int timeout) {
         log.info("url=" + url + ",json=" + json);
         CloseableHttpClient httpClient = HttpClients.createDefault();

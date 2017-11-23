@@ -14,7 +14,13 @@ import java.util.UUID;
 public class CodecUtil
 {
   private static final Logger logger = LoggerFactory.getLogger(CodecUtil.class);
-  
+
+  /**
+   *@description: encodeURL编码
+   *@params:
+   *@author: lizhixin
+   *@createDate: 17:34 2017/11/23
+  */
   public static String encodeURL(String str)
   {
     String target;
@@ -29,7 +35,13 @@ public class CodecUtil
     }
     return target;
   }
-  
+
+  /**
+   *@description: decodeURL解码
+   *@params:
+   *@author: lizhixin
+   *@createDate: 17:34 2017/11/23
+  */
   public static String decodeURL(String str)
   {
     String target;
@@ -45,6 +57,12 @@ public class CodecUtil
     return target;
   }
   
+  /**
+   *@description: encodeBASE64编码（String）
+   *@params: 
+   *@author: lizhixin
+   *@createDate: 17:34 2017/11/23 
+  */
   public static String encodeBASE64(String str)
   {
     String target;
@@ -59,13 +77,25 @@ public class CodecUtil
     }
     return target;
   }
-  
+
+  /**
+   *@description: encodeBASE64编码（byte[]）
+   *@params:
+   *@author: lizhixin
+   *@createDate: 17:36 2017/11/23
+  */
   public static String encodeBASE64(byte[] data)
   {
     String target = Base64.encodeBase64String(data);
     return target;
   }
-  
+
+  /**
+   *@description: decodeBASE64解码（String）
+   *@params:
+   *@author: lizhixin
+   *@createDate: 17:36 2017/11/23
+  */
   public static String decodeBASE64(String str)
   {
     String target;
