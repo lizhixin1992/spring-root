@@ -4,3 +4,4 @@
 # 整合RabbitMQ。
 # 加入了RabbitMQ
 # 加入了邮件的发送
+# 加入了ftp工具类
