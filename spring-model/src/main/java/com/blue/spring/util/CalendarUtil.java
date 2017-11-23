@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,19 +26,13 @@ public class CalendarUtil {
     public static final String TIME_FORMAT = "HH:mm";
     public static final String SHORT_DATA_FORMAT_YYYY_MMDD = "yyyy/MMdd";
 
-    public static int daysBetween(Calendar startTime, Calendar endTime) {
-        if (startTime == null) {
-            throw new IllegalArgumentException("startTime is null");
-        }
-        if (endTime == null) {
-            throw new IllegalArgumentException("endTime is null");
-        }
-        if (startTime.compareTo(endTime) > 0) {
-            throw new IllegalArgumentException("endTime is before the startTime");
-        }
-        return (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (1000 * 60 * 60 * 24));
-    }
 
+    /**
+     *@description: 获取下一天的时间
+     *@params: 
+     *@author: lizhixin
+     *@createDate: 14:56 2017/11/23 
+    */
     public static Calendar startOfDayTomorrow() {
         Calendar calendar = Calendar.getInstance();
         truncateDay(calendar);
@@ -46,6 +41,7 @@ public class CalendarUtil {
     }
 
     /**
+     * 获取下一天的时间
      * create a calendar for start of day yesterday.
      * 
      * @return
@@ -58,6 +54,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将时间的时分秒归零
+     *
      * Truncate the calendar's Calendar.HOUR, Calendar.MINUTE, Calendar.SECOND, Calendar.MILLISECOND to ZERO.
      * 
      * @param calendar
@@ -76,6 +74,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将日期转换成SimpleDateFormat默认的格式（例：17-9-11 上午12:00）
+     *
      * format a calendar using {@link SimpleDateFormat}, with default pattern. if a null calendar is passed
      * in, empty string is returned.
      * 
@@ -91,6 +91,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 获取时间的时和分（12:00）
+     *
      * format a Time using {@link SimpleDateFormat}, with default pattern. if a null calendar is passed in,
      * empty string is returned.
      * 
@@ -106,6 +108,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将Calendar中的时间转换成传入的时间格式
+     *
      * Return the String representation of the Calendar against the given format.
      * 
      * @param date the date to format, such as 'yyyy-MM-dd HH:mm:ss' for long date format with 24H
@@ -159,6 +163,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 根据传入的 date 和 时间格式 转换 String
+     *
      * Return the String representation of the Date against the given format.
      * 
      * @param date the date to format
@@ -175,6 +181,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 根据传入的 date 和 时间格式 和 时区 转换 Strng
+     *
      * Return the String representation of the Date against the given format.
      * 
      * @param date the date to format
@@ -191,6 +199,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 根据传入的 String类型时间 和 时间格式 转换 成 date
+     *
      * Parses the <tt>Date</tt> from the given date string and the format pattern.
      * 
      * @param dateString
@@ -232,7 +242,13 @@ public class CalendarUtil {
 
         return date;
     }
-    
+
+    /**
+     *@description: 根据 时间格式 和 时区 string转换成date类型数据
+     *@params:
+     *@author: lizhixin
+     *@createDate: 15:51 2017/11/23
+    */
     public static Date parse(String str, String pattern, Locale locale) {
       if(str == null || pattern == null) {
           return null;
@@ -245,7 +261,12 @@ public class CalendarUtil {
       return null;
   }
     
-
+    /**
+     *@description: 将 String型的日期先转成date类型（yyyy-MM-dd） ，在放到Calendar中返回
+     *@params:
+     *@author: lizhixin
+     *@createDate: 15:54 2017/11/23
+    */
     public static Calendar parseCalendarShort(String dateString) {
         if (!StringUtils.hasText(dateString)) {
             return null;
@@ -253,6 +274,12 @@ public class CalendarUtil {
         return parseCalendar(dateString, SHORT_DATE_FORMAT);
     }
 
+    /**
+     *@description: 将 String型的日期先转成date类型（yyyy-MM-dd HH:mm:ss） ，在放到Calendar中返回
+     *@params:
+     *@author: lizhixin
+     *@createDate: 16:27 2017/11/23
+    */
     public static Calendar parseCalendar(String dateString) {
         if (!StringUtils.hasText(dateString)) {
             return null;
@@ -295,6 +322,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将 String型的日期先转成 指定的时间格式 的date类型，在放到Calendar中返回
+     *
      * Parses the <tt>Date</tt> from the given date string and the format pattern and return it as a
      * {@link Calendar} instance.
      * 
@@ -312,6 +341,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将 String类型的时间 转换成 yyyy-MM-dd
+     *
      * Parses the <tt>Date</tt> from the given date string with the format pattern 'yyyy-MM-dd'.
      * 
      * @param dateString
@@ -335,6 +366,8 @@ public class CalendarUtil {
     }
 
     /**
+     *获取所传时间的 前一天时间（只是天数减少了一天）
+     *
      * return one day before the given date.
      * 
      * @param date the given date
@@ -347,6 +380,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 获取当前月份的天数
+     *
      * Get how many days in current month.
      */
     public static int daysForCurrentMonth() {
@@ -357,6 +392,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 将传入的date放到Calendar中，返回Calendar
+     *
      * Return the Calendar for the give date.
      * 
      * @param date
@@ -370,6 +407,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 获取 1970-01-01 00:00:00
+     *
      * return the EPOCH = "1970-01-01 00:00:00"
      * 
      * @return
@@ -381,6 +420,12 @@ public class CalendarUtil {
         return c;
     }
 
+    /**
+     *@description: 根据Long型的时间戳 获取时间格式为yyyy-MM-dd的时间戳
+     *@params:
+     *@author: lizhixin
+     *@createDate: 16:35 2017/11/23
+    */
     public static long getSimpleDateTimeMillis(long timeMillis) {
         Date date = new Date(timeMillis);
         String dateStr = getDateString(date, SHORT_DATE_FORMAT);
@@ -389,6 +434,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 根据传入时间(Date) 向后 加上 传入的向后添加的天数
+     *
      * get the date from a day with days
      * 
      * @author <a href="mailto:wang-shuai@letv.com">Ousui</a>
@@ -407,6 +454,8 @@ public class CalendarUtil {
     }
 
     /**
+     * 根据传入时间(Date) 和 时间格式 向后 加上 传入的向后添加的天数
+     *
      * get the date from a day with days
      * 
      * @author <a href="mailto:wang-shuai@letv.com">Ousui</a>
@@ -419,22 +468,46 @@ public class CalendarUtil {
         return CalendarUtil.getDateString(c, format);
     }
 
+    /**
+     *@description: 根据传入时间(String) 和 时间格式 向后 加上 传入的向后添加的天数
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:12 2017/11/23
+    */
     public static String getDateFromDate(String from, long days, String format) {
         Date d = CalendarUtil.parseDate(from, format);
         Calendar c = CalendarUtil.getDateFromDate(d, days);
         return CalendarUtil.getDateString(c, format);
     }
 
+    /**
+     *@description: 获取当天的开始时间（例：2017-11-23 00:00:00）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:15 2017/11/23
+    */
     public static Calendar getDayStart() {
         Calendar cal = Calendar.getInstance();
         cal = truncateDay(cal);
         return cal;
     }
-    
+
+    /**
+     *@description: 获取当天的开始时间（例：2017-11-23 00:00:00）//和上面那个方法一样
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:17 2017/11/23
+    */
     public static Date getDayBegin(){
     	return parseDate(getShortDateString(new Date())+" 00:00:00", SIMPLE_DATE_FORMAT);
     }
 
+    /**
+     *@description: 获取本周的开始时间（周一）（例：2017-11-20 00:00:00）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:20 2017/11/23
+    */
     public static Calendar getWeekDayStart() {
         Calendar cal = Calendar.getInstance();
         int day_of_week = cal.get(Calendar.DAY_OF_WEEK) - 2;
@@ -443,6 +516,12 @@ public class CalendarUtil {
         return cal;
     }
 
+    /**
+     *@description: 获取本月的开始时间（例：2017-11-01 00:00:00）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:21 2017/11/23
+    */
     public static Calendar getMonthDayStart() {
         Calendar cal = Calendar.getInstance();
         int day_of_month = cal.get(Calendar.DAY_OF_MONTH) - 1;
@@ -464,15 +543,33 @@ public class CalendarUtil {
         c.add(Calendar.DATE, n); //日期加n天  
         date = c.getTime();  
         return date;  
-    }  
-    
-    public static void main(String args[]) {
- //_log.info(CalendarUtil.parseIntegerToDate(60));
- //parseDefaultDate("Tue Dec 02 14:24:31 CST 2014");
-     Date date = parse("Tue Dec 02 14:24:31 CST 2014", "EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
-     log.info(date.toString());
     }
 
+    /**
+     *@description: 计算两个时间的间隔天数（以天为单位,不足一天24小时的不算一天）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 14:53 2017/11/23
+     */
+    public static int daysBetween(Calendar startTime, Calendar endTime) {
+        if (startTime == null) {
+            throw new IllegalArgumentException("startTime is null");
+        }
+        if (endTime == null) {
+            throw new IllegalArgumentException("endTime is null");
+        }
+        if (startTime.compareTo(endTime) > 0) {
+            throw new IllegalArgumentException("endTime is before the startTime");
+        }
+        return (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (1000 * 60 * 60 * 24));
+    }
+
+    /**
+     *@description: 两个时间的时间差（例：1天1小时）
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:22 2017/11/23
+    */
     public static String dateBetween(Date btime,Date etime){
         if(btime == null || etime == null){
             return "";
@@ -535,5 +632,170 @@ public class CalendarUtil {
             instance.add(Calendar.DAY_OF_WEEK, 1);
         }
         return weekMap;
+    }
+
+    /**
+     *@description: 获取当前的时间戳
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:30 2017/11/23
+    */
+    public static Timestamp currentTimestamp(){
+        return new Timestamp(System.currentTimeMillis());
+    }
+
+    /**
+     *@description: 获取本年的开始时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:30 2017/11/23
+    */
+    public static java.util.Date getBeginDayOfYear() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, getNowYear());
+        // cal.set
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DATE, 1);
+
+        return getDayStartTime(cal.getTime());
+    }
+
+    /**
+     *@description: 获取本年的结束时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:30 2017/11/23
+    */
+    public static java.util.Date getEndDayOfYear() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, getNowYear());
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 31);
+        return getDayEndTime(cal.getTime());
+    }
+
+    /**
+     *@description: 获取某个日期的开始时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:31 2017/11/23
+    */
+    public static Timestamp getDayStartTime(Date d) {
+        Calendar calendar = Calendar.getInstance();
+        if (null != d) calendar.setTime(d);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return new Timestamp(calendar.getTimeInMillis());
+    }
+
+    /**
+     *@description: 获取某个日期的结束时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:31 2017/11/23
+    */
+    public static Timestamp getDayEndTime(Date d) {
+        Calendar calendar = Calendar.getInstance();
+        if (null != d) calendar.setTime(d);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 23, 59, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+        return new Timestamp(calendar.getTimeInMillis());
+    }
+
+    /**
+     *@description: 获取今年是哪一年
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:31 2017/11/23
+    */
+    public static Integer getNowYear() {
+        Date date = new Date();
+        GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
+        gc.setTime(date);
+        return Integer.valueOf(gc.get(1));
+    }
+
+    /**
+     *@description: 获取某年的开始时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:31 2017/11/23
+    */
+    public static java.util.Date getBeginDayOfYear(Integer year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        // cal.set
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DATE, 1);
+
+        return getDayStartTime(cal.getTime());
+    }
+
+    /**
+     *@description: 获取某年的结束时间
+     *@params:
+     *@author: lizhixin
+     *@createDate: 17:31 2017/11/23
+    */
+    public static java.util.Date getEndDayOfYear(Integer year) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 31);
+        return getDayEndTime(cal.getTime());
+    }
+
+
+    public static void main(String args[]) {
+        //_log.info(CalendarUtil.parseIntegerToDate(60));
+//        parseDefaultDate("Tue Dec 02 14:24:31 CST 2014");
+//        Date date = parse("Tue Dec 02 14:24:31 CST 2014", "EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+//        log.info(date.toString());
+
+        Date date1 = parseDefaultDate("2017-09-11 12:00:00");
+        Date date2 = parseDefaultDate("2017-09-12 13:00:00");
+        Calendar calendar1 = Calendar.getInstance();
+        Calendar calendar2 = Calendar.getInstance();
+        calendar1.setTime(date1);
+        calendar2.setTime(date2);
+//        System.out.println(daysBetween(calendar1,calendar2));
+//
+//        System.out.println(getDateString(startOfDayTomorrow(),SIMPLE_DATE_FORMAT));
+//
+//        System.out.println(getDateString(startOfDayYesterday(),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getDateString(truncateDay(calendar1),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(format(calendar1));
+
+//        Time time = new Time(date1.getTime());
+//        System.out.println(format(time));
+
+//        System.out.println(getDateString(calendar1,SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getFormatDateString(date1,SHORT_DATE_FORMAT));
+
+//        System.out.println(getDateString(date1,SIMPLE_DATE_FORMAT,Locale.US));
+
+//        System.out.println(parseCalendarShort(date1.toString()));
+
+//        System.out.println(getDateString(backOneDay(calendar1),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(daysForCurrentMonth());
+
+//        System.out.println(getSimpleDateTimeMillis(System.currentTimeMillis()));
+
+//        System.out.println(getDateString(getDateFromDate(date1,2),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getDateString(getDayStart(),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getDateString(getDayBegin(),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getDateString(getWeekDayStart(),SIMPLE_DATE_FORMAT));
+
+//        System.out.println(getDateString(getMonthDayStart(),SIMPLE_DATE_FORMAT));
+
+        System.out.println(dateBetween(date1,date2));
+
     }
 }
