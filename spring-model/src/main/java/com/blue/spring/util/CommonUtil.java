@@ -185,33 +185,33 @@ public class CommonUtil {
         return result;
     }
 
-    /**
-     * 把一些原有系统的字典值转成现有系统的字典值
-     *
-     * @param valueId
-     * @param objectType
-     * @param typeId
-     * @param count
-     * @return
-     */
-    public Integer fillValueId(String valueId,int objectType, Integer typeId, int count) {
-        if (valueId == null || valueId.length() < 1) {
-            return null;
-        }
-        if ("-1".equals(valueId)) {
-            return -1;
-        }
-        valueId = valueId.trim();
-
-        StringBuilder sb = new StringBuilder();
-        while (valueId.length() < count) {
-            sb.append("0").append(valueId);
-            valueId = sb.toString();
-            sb = new StringBuilder();
-        }
-
-        return Integer.parseInt(String.valueOf(typeId) +objectType+ valueId);
-    }
+//    /**
+//     * 把一些原有系统的字典值转成现有系统的字典值
+//     *
+//     * @param valueId
+//     * @param objectType
+//     * @param typeId
+//     * @param count
+//     * @return
+//     */
+//    public Integer fillValueId(String valueId,int objectType, Integer typeId, int count) {
+//        if (valueId == null || valueId.length() < 1) {
+//            return null;
+//        }
+//        if ("-1".equals(valueId)) {
+//            return -1;
+//        }
+//        valueId = valueId.trim();
+//
+//        StringBuilder sb = new StringBuilder();
+//        while (valueId.length() < count) {
+//            sb.append("0").append(valueId);
+//            valueId = sb.toString();
+//            sb = new StringBuilder();
+//        }
+//
+//        return Integer.parseInt(String.valueOf(typeId) +objectType+ valueId);
+//    }
 
     public Float formatFloat(Object o) {
         if (o == null) {
