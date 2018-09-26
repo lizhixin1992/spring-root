@@ -1,5 +1,18 @@
-.idea/*
-target/*
-*.iml
-# gitignore
 *.class
+
+# Package Files #
+*.war
+*.ear
+
+# ignore Maven generated target folders
+target/
+.settings/
+
+# ignore eclipse files
+.project
+.classpath
+.metadata
+
+#ignore idea files
+.idea/
+*.iml
