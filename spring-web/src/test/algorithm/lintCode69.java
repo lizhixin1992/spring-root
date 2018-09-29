@@ -1,9 +1,6 @@
 package algorithm;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @ClassName lintCode69
@@ -62,5 +59,14 @@ public class lintCode69 {
 
     public static void main(String[] args) {
 
+        List<Integer> a = new ArrayList();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.parallelStream().filter(x -> x > 2).count();
+        Optional b = Optional.ofNullable(null);
+        System.out.println(b.isPresent());
     }
 }
