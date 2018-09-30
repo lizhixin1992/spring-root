@@ -1,23 +1,22 @@
 package algorithm;
 
-import org.springframework.data.querydsl.QSort;
 
 public class InsertSort {
     public static void main(String[] args) {
-        int [] a = {2,3,1,4,6,5,7,9,8};
+        int[] a = {2, 3, 1, 4, 6, 5, 7, 9, 8};
 
         //直接插入排序
 //        int temp = -1;
-//        int n = 0;
-//        for (int i = 1; i <= a.length-1; i++){
-//            if(a[i-1] > a[i]){
+//        for (int i = 1; i <= a.length - 1; i++) {
+//            int n = 0;
+//            if (a[i - 1] > a[i]) {
 //                temp = a[i];
-//                a[i] = a[i-1];
-//                for(int j = i -2; j >= 0; j--){
-//                    if(a[j] > temp) {
+//                a[i] = a[i - 1];
+//                for (int j = i - 2; j >= 0; j--) {
+//                    if (a[j] > temp) {
 //                        a[j + 1] = a[j];
-//                    }else{
-//                        n = j+1;
+//                    } else {
+//                        n = j + 1;
 //                        break;
 //                    }
 //                }
@@ -59,7 +58,7 @@ public class InsertSort {
 
 
         //快速排序
-        QSort(a,0,a.length-1);
+        QSort(a, 0, a.length - 1);
 
 
         for (int i = 0; i < a.length; i++) {
@@ -68,22 +67,22 @@ public class InsertSort {
         }
     }
 
-    public static void QSort(int[] a, int low, int high){
-        if(low<high){
-            int pivotloc = Partition(a,low,high);
-            QSort(a,low,pivotloc - 1);
-            QSort(a,pivotloc+1,high);
+    public static void QSort(int[] a, int low, int high) {
+        if (low < high) {
+            int pivotloc = Partition(a, low, high);
+            QSort(a, low, pivotloc - 1);
+            QSort(a, pivotloc + 1, high);
         }
     }
 
-    public static int Partition (int[] a,int low,int high){
+    public static int Partition(int[] a, int low, int high) {
         int temp = a[low];
-        while(low < high){
-            while(low < high && a[high] >= temp){
+        while (low < high) {
+            while (low < high && a[high] >= temp) {
                 --high;
             }
             a[low] = a[high];
-            while(low < high && a[low] <= temp){
+            while (low < high && a[low] <= temp) {
                 ++low;
             }
             a[high] = a[low];
